@@ -192,6 +192,7 @@
             this.exitLabel.Size = new System.Drawing.Size(47, 51);
             this.exitLabel.TabIndex = 16;
             this.exitLabel.Text = "X";
+            this.exitLabel.Click += new System.EventHandler(this.exitLabel_Click);
             // 
             // titleLabel
             // 
