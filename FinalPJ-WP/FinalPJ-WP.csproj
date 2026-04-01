@@ -85,6 +85,7 @@
   <ItemGroup>
     <Folder Include="BS Layer\" />
     <Folder Include="DB Layer\" />
+    <Folder Include="Images\Image Game\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
