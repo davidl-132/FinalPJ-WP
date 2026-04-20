@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
@@ -48,15 +66,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form\Form1.cs">
+    <Compile Include="BS layer\Bldonhang.cs" />
+    <Compile Include="BS layer\Blkhachhang.cs" />
+    <Compile Include="BS layer\BLNguoiDung.cs" />
+    <Compile Include="BS layer\Blnhaphang.cs" />
+    <Compile Include="BS layer\BLSanPham.cs" />
+    <Compile Include="BS layer\BlNhanVien.cs" />
+    <Compile Include="DB layer\DBMain.cs" />
+    <Compile Include="DSBaoCao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSBaoCao.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MD5Helper.cs" />
+    <Compile Include="SessionManager.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Form1.Designer.cs">
+    <Compile Include="UI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frmbaocao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frmbaocao.Designer.cs">
+      <DependentUpon>Frmbaocao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frmdonhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frmdonhang.Designer.cs">
+      <DependentUpon>Frmdonhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frmkhachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frmkhachhang.Designer.cs">
+      <DependentUpon>Frmkhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form\Form1.resx">
+    <Compile Include="UI\Frmnhanvien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frmnhanvien.Designer.cs">
+      <DependentUpon>Frmnhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frmnhaphang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frmnhaphang.Designer.cs">
+      <DependentUpon>Frmnhaphang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Frmsanpham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frmsanpham.Designer.cs">
+      <DependentUpon>Frmsanpham.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report\RptKhoSapHet.rdlc" />
+    <EmbeddedResource Include="Report\RptDoanhThuNgay.rdlc" />
+    <EmbeddedResource Include="Report\RptDoanhThuThang.rdlc" />
+    <EmbeddedResource Include="Report\RptGameBanChay.rdlc" />
+    <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -69,6 +148,36 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Frmbaocao.resx">
+      <DependentUpon>Frmbaocao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frmdonhang.resx">
+      <DependentUpon>Frmdonhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frmkhachhang.resx">
+      <DependentUpon>Frmkhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frmnhanvien.resx">
+      <DependentUpon>Frmnhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frmsanpham.resx">
+      <DependentUpon>Frmsanpham.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DSBaoCao.xsc">
+      <DependentUpon>DSBaoCao.xsd</DependentUpon>
+    </None>
+    <None Include="DSBaoCao.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSBaoCao.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSBaoCao.xss">
+      <DependentUpon>DSBaoCao.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -83,9 +192,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BS Layer\" />
-    <Folder Include="DB Layer\" />
     <Folder Include="Images\Image Game\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

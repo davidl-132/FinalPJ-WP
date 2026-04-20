@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition"
+        xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+
+      <!-- TIÊU ĐỀ -->
+      <Textbox Name="TieuDe">
+        <CanGrow>true</CanGrow>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>BÁO CÁO DOANH THU THEO NGÀY</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>White</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style><TextAlign>Left</TextAlign></Style>
+          </Paragraph>
+        </Paragraphs>
+        <Style>
+          <BackgroundColor>#1a3a5c</BackgroundColor>
+          <Border><Style>None</Style></Border>
+          <PaddingLeft>12pt</PaddingLeft><PaddingRight>12pt</PaddingRight>
+          <PaddingTop>10pt</PaddingTop><PaddingBottom>4pt</PaddingBottom>
+        </Style>
+        <Left>0in</Left><Top>0in</Top>
+        <Width>7.5in</Width><Height>0.35in</Height>
+      </Textbox>
+
+      <Textbox Name="SubTitle">
+        <CanGrow>true</CanGrow>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Thống kê doanh thu và số đơn hàng theo từng ngày</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><Color>#a8c4e0</Color></Style>
+              </TextRun>
+            </TextRuns>
+            <Style><TextAlign>Left</TextAlign></Style>
+          </Paragraph>
+        </Paragraphs>
+        <Style>
+          <BackgroundColor>#1a3a5c</BackgroundColor>
+          <Border><Style>None</Style></Border>
+          <PaddingLeft>12pt</PaddingLeft><PaddingTop>0pt</PaddingTop><PaddingBottom>8pt</PaddingBottom>
+        </Style>
+        <Left>0in</Left><Top>0.35in</Top><Width>5in</Width><Height>0.22in</Height>
+      </Textbox>
+
+      <Textbox Name="NgayIn">
+        <CanGrow>true</CanGrow>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=("Ngày in: " &amp; Format(Now(), "dd/MM/yyyy"))</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><Color>#a8c4e0</Color></Style>
+              </TextRun>
+            </TextRuns>
+            <Style><TextAlign>Right</TextAlign></Style>
+          </Paragraph>
+        </Paragraphs>
+        <Style>
+          <BackgroundColor>#1a3a5c</BackgroundColor>
+          <Border><Style>None</Style></Border>
+          <PaddingRight>12pt</PaddingRight><PaddingTop>0pt</PaddingTop><PaddingBottom>8pt</PaddingBottom>
+        </Style>
+        <Left>5in</Left><Top>0.35in</Top><Width>2.5in</Width><Height>0.22in</Height>
+      </Textbox>
+
+      <!-- BẢNG -->
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn><Width>0.4in</Width></TablixColumn>
+            <TablixColumn><Width>2.5in</Width></TablixColumn>
+            <TablixColumn><Width>2.3in</Width></TablixColumn>
+            <TablixColumn><Width>2.3in</Width></TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+
+            <!-- HEADER ROW -->
+            <TablixRow>
+              <Height>0.28in</Height>
+              <TablixCells>
+                <TablixCell><CellContents>
+                  <Textbox Name="Hdr0"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>#</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></BottomBorder>
+                      <PaddingTop>6pt</PaddingTop><PaddingBottom>6pt</PaddingBottom></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="Hdr1"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>NGÀY</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></BottomBorder>
+                      <PaddingLeft>8pt</PaddingLeft><PaddingTop>6pt</PaddingTop><PaddingBottom>6pt</PaddingBottom></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="Hdr2"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>SỐ ĐƠN HÀNG</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></BottomBorder>
+                      <PaddingTop>6pt</PaddingTop><PaddingBottom>6pt</PaddingBottom></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="Hdr3"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>DOANH THU (VND)</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></BottomBorder>
+                      <PaddingRight>8pt</PaddingRight><PaddingTop>6pt</PaddingTop><PaddingBottom>6pt</PaddingBottom></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+              </TablixCells>
+            </TablixRow>
+
+            <!-- DETAILS ROW -->
+            <TablixRow>
+              <Height>0.26in</Height>
+              <TablixCells>
+                <TablixCell><CellContents>
+                  <Textbox Name="STT"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>=RowNumber(Nothing)</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style>
+                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2 = 0,"#f0f4f8","White")</BackgroundColor>
+                      <Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#e2e8f0</Color><Style>Solid</Style><Width>0.5pt</Width></BottomBorder>
+                      <PaddingTop>5pt</PaddingTop><PaddingBottom>5pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="Ngay"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>=Fields!Ngay.Value</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><Color>#2d3748</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style>
+                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2 = 0,"#f0f4f8","White")</BackgroundColor>
+                      <Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#e2e8f0</Color><Style>Solid</Style><Width>0.5pt</Width></BottomBorder>
+                      <PaddingLeft>8pt</PaddingLeft><PaddingTop>5pt</PaddingTop><PaddingBottom>5pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="SoDonHang"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>=Sum(Fields!SoDonHang.Value)</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style>
+                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2 = 0,"#f0f4f8","White")</BackgroundColor>
+                      <Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#e2e8f0</Color><Style>Solid</Style><Width>0.5pt</Width></BottomBorder>
+                      <PaddingTop>5pt</PaddingTop><PaddingBottom>5pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="DoanhThu"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>=Format(Sum(Fields!DoanhThu.Value), "#,##0")</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><Color>#2d3748</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style>
+                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2 = 0,"#f0f4f8","White")</BackgroundColor>
+                      <Border><Style>None</Style></Border>
+                      <BottomBorder><Color>#e2e8f0</Color><Style>Solid</Style><Width>0.5pt</Width></BottomBorder>
+                      <PaddingRight>8pt</PaddingRight><PaddingTop>5pt</PaddingTop><PaddingBottom>5pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+              </TablixCells>
+            </TablixRow>
+
+            <!-- FOOTER ROW -->
+            <TablixRow>
+              <Height>0.28in</Height>
+              <TablixCells>
+                <TablixCell><CellContents>
+                  <Textbox Name="FtrBlank"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun><Value></Value></TextRun></TextRuns></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <TopBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></TopBorder></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="FtrLabel"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>TỔNG CỘNG</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <TopBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></TopBorder>
+                      <PaddingLeft>8pt</PaddingLeft><PaddingTop>6pt</PaddingTop><PaddingBottom>6pt</PaddingBottom></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="FtrSoDonHang"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>=Sum(Fields!SoDonHang.Value)</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <TopBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></TopBorder>
+                      <PaddingTop>6pt</PaddingTop><PaddingBottom>6pt</PaddingBottom></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+
+                <TablixCell><CellContents>
+                  <Textbox Name="FtrDoanhThu"><CanGrow>true</CanGrow>
+                    <Paragraphs><Paragraph><TextRuns><TextRun>
+                      <Value>=Format(Sum(Fields!DoanhThu.Value), "#,##0")</Value>
+                      <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight><Color>#1a3a5c</Color></Style>
+                    </TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
+                    <Style><BackgroundColor>#dde6f0</BackgroundColor><Border><Style>None</Style></Border>
+                      <TopBorder><Color>#1a3a5c</Color><Style>Solid</Style><Width>2pt</Width></TopBorder>
+                      <PaddingRight>8pt</PaddingRight><PaddingTop>6pt</PaddingTop><PaddingBottom>6pt</PaddingBottom></Style>
+                  </Textbox>
+                </CellContents></TablixCell>
+              </TablixCells>
+            </TablixRow>
+
+          </TablixRows>
+        </TablixBody>
+
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember /><TablixMember /><TablixMember /><TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+            <TablixMember>
+              <KeepWithGroup>Before</KeepWithGroup>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+
+        <DataSetName>RptDoanhThu</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!Ngay.Value</Value>
+            <Direction>Ascending</Direction>
+          </SortExpression>
+        </SortExpressions>
+        <Left>0in</Left><Top>0.62in</Top>
+        <Height>0.82in</Height><Width>7.5in</Width>
+        <Style><Border><Style>None</Style></Border></Style>
+      </Tablix>
+
+    </ReportItems>
+    <Height>4in</Height>
+    <Style />
+  </Body>
+
+  <Width>7.5in</Width>
+  <Page>
+    <LeftMargin>0.5in</LeftMargin><RightMargin>0.5in</RightMargin>
+    <TopMargin>0.5in</TopMargin><BottomMargin>0.5in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+
+  <DataSources>
+    <DataSource Name="DSBaoCao">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>058e3f1f-8264-44f8-80a6-7adc1be04e63</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+
+  <DataSets>
+    <DataSet Name="RptDoanhThu">
+      <Query>
+        <DataSourceName>DSBaoCao</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Ngay">
+          <DataField>Ngay</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SoDonHang">
+          <DataField>SoDonHang</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DoanhThu">
+          <DataField>DoanhThu</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DSBaoCao</rd:DataSetName>
+        <rd:SchemaPath>D:\BattleShip2\FinalPJ-WP\FinalPJ-WP\DSBaoCao.xsd</rd:SchemaPath>
+        <rd:TableName>DonHang</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>DonHangTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>631de061-2c09-4e5f-99b7-0e8ab74b784e</rd:ReportID>
+</Report>
